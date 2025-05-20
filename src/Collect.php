@@ -11,19 +11,19 @@ class Collect
         $this->array = $array;
     }
 
-    public function keys(): Collect
+    public function keys(): array
     {
-        return new self(array_keys($this->array));
+        return array_keys($this->array);
     }
 
-    public function values(): Collect
+    public function values(): array
     {
-        return new self(array_values($this->array));
+        return array_values($this->array);
     }
 
-    public function get($key = null)
+    public function get($key, $default = null)
     {
-        return $this->array[$key] ?? $this->array;
+        return $this->array[$key] ?? $default;
     }
 
     public function except(...$attrs): Collect
